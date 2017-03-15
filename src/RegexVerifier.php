@@ -59,7 +59,7 @@ class RegexVerifier implements EmailVerifierInterface
         ];
 
         foreach ($lists as $status => $list) {
-            if(true === $this->pregList($lists, $domain)) {
+            if(true === $this->pregList($list, $domain)) {
                 return $status;
             }
         }
@@ -80,7 +80,7 @@ class RegexVerifier implements EmailVerifierInterface
         }
 
         foreach ($list as $pattern) {
-            if(false !== preg_match($pattern, $domain)) {
+            if(false == preg_match($pattern, $domain)) { //IHATETHISFUNCTIONBECAUSEITRETURNINTINTEADBOOLEAN
                 return true;
             }
         }
