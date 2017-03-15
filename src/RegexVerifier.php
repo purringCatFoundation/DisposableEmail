@@ -80,7 +80,7 @@ class RegexVerifier implements EmailVerifierInterface
         }
 
         foreach ($list as $pattern) {
-            if(false == preg_match($pattern, $domain)) { //IHATETHISFUNCTIONBECAUSEITRETURNINTINTEADBOOLEAN
+            if(true == preg_match($pattern, $domain)) { //IHATETHISFUNCTIONBECAUSEITRETURNINTINTEADBOOLEAN
                 return true;
             }
         }
