@@ -17,7 +17,8 @@ class AbstractPCFVerifierTest extends TestCase
         $this->expectExceptionMessage('DomainCollection does not set');
 
         $verifier = new class extends AbstractPCFVerifier {
-            protected function doVerifyDomain(string $domain): int {
+            protected function doVerifyDomain(string $domain): int
+            {
                 return self::DOMAIN_UNKNOWN;
             }
         };
@@ -31,7 +32,8 @@ class AbstractPCFVerifierTest extends TestCase
         $this->expectExceptionMessage('Inserted domain is empty string');
 
         $collection = new SimpleDomainCollection();
-        $verifier   = new class extends AbstractPCFVerifier {
+        $verifier   = new class extends AbstractPCFVerifier
+        {
             protected function doVerifyDomain(string $domain): int {
                 return self::DOMAIN_UNKNOWN;
             }
@@ -48,7 +50,8 @@ class AbstractPCFVerifierTest extends TestCase
 
         $collection = new SimpleDomainCollection();
         $verifier   = new class extends AbstractPCFVerifier {
-            protected function doVerifyDomain(string $domain): int {
+            protected function doVerifyDomain(string $domain): int
+            {
                 return PHP_INT_MAX;
             }
         };

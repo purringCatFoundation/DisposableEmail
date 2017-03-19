@@ -11,14 +11,16 @@ These repository is contributed by [MIT License](LICENSE) but files [BlockList.p
 
 ```PHP
 <?php
+
+require 'vendor/autoload.php';
+
 use PCF\DisposableEmail\ListedVerifier;
 use PCF\DisposableEmail\SimpleDomainCollection;
-use PCF\DisposableEmail\Resource\BlockList;
-use PCF\DisposableEmail\Resource\TrustList;
+use PCF\DisposableEmail\Resource\AbstractResourceList;
 
 $collection = new SimpleDomainCollection();
-$collection->setBlockedList(BlockList::getList());
-$collection->setTrustedList(TrustList::getList());
+$collection->setBlockedList(AbstractResourceList::getList('block'));
+$collection->setTrustedList(AbstractResourceList::getList('trust'));
 $collection->setKnownList([
     //Add domains that you know, if you want
 ]);
@@ -29,8 +31,6 @@ $mail = 'paw.radzikowski@gmail.com';
 list($localPart, $domain) = explode('@', $mail);
 
 $status = $verifier->verifyDomain($domain); //It should return ListedVerifier::DOMAIN_UNKNOWN
-
-?>
 ```
 
 #Versions
