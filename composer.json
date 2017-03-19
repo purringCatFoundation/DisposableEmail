@@ -8,6 +8,10 @@
     {
       "name": "Paweł",
       "email": "paw.radzikowski@gmail.com"
+    },
+    {
+      "name": "Bernard",
+      "email": "b.vanderesch@gmail.com"
     }
   ],
   "minimum-stability": "stable",
