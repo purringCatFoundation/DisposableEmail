@@ -9,7 +9,7 @@ namespace PCF\DisposableEmail;
  *
  * @package PCF\DisposableEmail\Verifier
  */
-Interface EmailVerifierInterface
+interface EmailVerifierInterface
 {
     /** Domain is known and trusted */
     const DOMAIN_TRUSTED   = 1;

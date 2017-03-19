@@ -66,4 +66,7 @@ local.properties
 # Code Recommenders
 .recommenders/
 
+#Cloud9 editor
+.c9/
+
 phpunit.xml

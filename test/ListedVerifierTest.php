@@ -11,24 +11,51 @@ use PHPUnit\Framework\TestCase;
 
 class ListedVerifierTest extends TestCase
 {
-
-    public function testNotSetDomainCollectionException(): void
+    /**
+     * @dataProvider verifyTestDataProvider
+     *
+     * @param SimpleDomainCollection $collection
+     * @param string                 $testDomain
+     * @param int                    $expectedStatus
+     */
+    public function testVerify(SimpleDomainCollection $collection, string $testDomain, int $expectedStatus): void
     {
-        $this->expectException(VerifyDomainException::class);
-        $this->expectExceptionMessage('DomainCollection does not set');
+        $verifier = new ListedVerifier($collection);
+        $actualStatus = $verifier->verifyDomain($testDomain);
 
-        $verifier = new ListedVerifier();
-        $verifier->verifyDomain('aaa.com');
+        $this->assertEquals($expectedStatus, $actualStatus);
     }
 
-    public function testEmptyStringException(): void
+    /**
+     * @return array
+     */
+    public function verifyTestDataProvider(): array
     {
-        $this->expectException(VerifyDomainException::class);
-        $this->expectExceptionMessage('Inserted domain is empty string');
-
         $collection = new SimpleDomainCollection();
-        $verifier   = new ListedVerifier($collection);
+        $collection->setBlockedList([
+            'domain1.test',
+            'domain2.test',
+            'domain3.test'
+        ]);
+        $collection->setTrustedList([
+            'domain2.test',
+            'domain4.test',
+            'domain5.test'
+        ]);
+        $collection->setKnownList([
+            'domain3.test',
+            'domain5.test',
+            'domain6.test'
+        ]);
 
-        $verifier->verifyDomain('');
+        return [
+            [ $collection, 'domain1.test', ListedVerifier::DOMAIN_UNTRUSTED ],
+            [ $collection, 'domain2.test', ListedVerifier::DOMAIN_UNTRUSTED ],
+            [ $collection, 'domain3.test', ListedVerifier::DOMAIN_UNTRUSTED ],
+            [ $collection, 'domain4.test', ListedVerifier::DOMAIN_TRUSTED   ],
+            [ $collection, 'domain5.test', ListedVerifier::DOMAIN_TRUSTED   ],
+            [ $collection, 'domain6.test', ListedVerifier::DOMAIN_KNOWN     ],
+            [ $collection, 'domain7.test', ListedVerifier::DOMAIN_UNKNOWN   ],
+        ];
     }
 }
