@@ -16,9 +16,9 @@ abstract class AbstractResourceList
     
     /**
      * @param string $listName
-     * 
+     *
      * @return array
-     * 
+     *
      * @throws DisposableEmailException
      */
     public static function getList(string $listName): array
@@ -36,9 +36,9 @@ abstract class AbstractResourceList
     
     /**
      * @param string $path
-     * 
+     *
      * @return array
-     * 
+     *
      * @throws DisposableEmailException
      */
     protected static function readFile(string $path): array

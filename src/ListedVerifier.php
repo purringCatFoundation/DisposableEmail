@@ -30,7 +30,7 @@ class ListedVerifier extends AbstractPCFVerifier
                 continue;
             }
 
-            if (in_array($domain, $list)){
+            if (in_array($domain, $list)) {
                 return $status;
             }
         }

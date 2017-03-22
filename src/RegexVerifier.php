@@ -24,7 +24,7 @@ class RegexVerifier extends AbstractPCFVerifier
         ];
 
         foreach ($lists as $status => $list) {
-            if(true === $this->pregList($list, $domain)) {
+            if (true === $this->pregList($list, $domain)) {
                 return $status;
             }
         }
