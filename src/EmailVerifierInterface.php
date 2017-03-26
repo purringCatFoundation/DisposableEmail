@@ -12,16 +12,16 @@ namespace PCF\DisposableEmail;
 interface EmailVerifierInterface
 {
     /** Domain is known and trusted */
-    const DOMAIN_TRUSTED   = 1;
+    public const DOMAIN_TRUSTED   = 1;
 
     /** Domain is known and untrusted */
-    const DOMAIN_UNTRUSTED = 2;
+    public const DOMAIN_UNTRUSTED = 2;
 
     /** Domain is known and user not decided about trust policy*/
-    const DOMAIN_KNOWN     = 3;
+    public const DOMAIN_KNOWN     = 3;
 
     /** Domain is unknown */
-    const DOMAIN_UNKNOWN   = 4;
+    public const DOMAIN_UNKNOWN   = 4;
 
     /**
      * Method will check email's domain status based on inserted into class lists.

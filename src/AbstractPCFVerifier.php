@@ -79,7 +79,7 @@ abstract class AbstractPCFVerifier implements EmailVerifierInterface
     }
     
     /**
-     * @param int    $domainStatus
+     * @param int    $validationResult
      * @param string $domain
      *
      * @throws VerifyDomainException

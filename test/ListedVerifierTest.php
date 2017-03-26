@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace PCF\DisposableEmailTest;
 
-use PCF\DisposableEmail\Exception\VerifyDomainException;
 use PCF\DisposableEmail\ListedVerifier;
 use PCF\DisposableEmail\SimpleDomainCollection;
 use PHPUnit\Framework\TestCase;

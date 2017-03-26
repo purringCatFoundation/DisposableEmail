@@ -5,7 +5,7 @@ Our domain repositories comes from [repository](https://github.com/martenson/dis
 Domain repository date: [10.03.2017](https://github.com/martenson/disposable-email-domains/commit/e68bd490c6a8fa10012128955df86facfe4028e9)
 
 
-These repository is contributed by [MIT License](LICENSE) but files [BlockList.php](src/Resource/BlockList.php) and [TrustList.php](src/Resource/TrustList.php) are contributed by [Public Domain License(CC0 1.0)](https://creativecommons.org/publicdomain/zero/1.0/).
+These repository is contributed by [MIT License](LICENSE) but files [blocklist.conf](src/Resource/lists/blocklist.conf) and [trustlist.conf](src/Resource/lists/trustlist.conf) are contributed by [Public Domain License(CC0 1.0)](https://creativecommons.org/publicdomain/zero/1.0/).
 
 # Basic Usage
 
