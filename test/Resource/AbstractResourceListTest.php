@@ -34,7 +34,7 @@ class AbstractResourceListTest extends TestCase
         $testClass = new class extends AbstractResourceList {
             public static function getList(string $listName): array
             {
-                return self::readFile($listName);
+                return self::parseFile($listName);
             }
         };
         

@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace PCF\DisposableEmail;
 
-use PCF\DisposableEmail\Exception\VerifyDomainException;
-
 /**
  * Class RegexVerifier
  * @package PCF\DisposableEmail
@@ -18,9 +16,9 @@ class RegexVerifier extends AbstractPCFVerifier
     protected function doVerifyDomain(string $domain): int
     {
         $lists = [
-            self::DOMAIN_UNTRUSTED => $this->collection->getBlockedList(),
-            self::DOMAIN_TRUSTED   => $this->collection->getTrustedList(),
-            self::DOMAIN_KNOWN     => $this->collection->getKnownList(),
+            static::DOMAIN_UNTRUSTED => $this->collection->getBlockedList(),
+            static::DOMAIN_TRUSTED   => $this->collection->getTrustedList(),
+            static::DOMAIN_KNOWN     => $this->collection->getKnownList(),
         ];
 
         foreach ($lists as $status => $list) {
@@ -29,11 +27,11 @@ class RegexVerifier extends AbstractPCFVerifier
             }
         }
 
-        return self::DOMAIN_UNKNOWN;
+        return static::DOMAIN_UNKNOWN;
     }
 
     /**
-     * @param array  $list
+     * @param string[] $list
      * @param string $domain
      *
      * @return bool
