@@ -3,7 +3,6 @@
   "description": "Simple lib to verify is present mail come from disposable or temporary email address domain.",
   "type": "library",
   "license": "MIT",
-  "version": "0.1.201707401",
   "authors": [
     {
       "name": "Paweł",
