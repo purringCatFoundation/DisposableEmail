@@ -33,13 +33,13 @@ class RegexVerifierTest extends TestCase
     {
         $collection = new SimpleDomainCollection();
         $collection->setBlockedList([
-            '/^domain(1|2|3).test/',
+            '^domain(1|2|3).test',
         ]);
         $collection->setTrustedList([
-            '/^domain(2|4|5).test/',
+            '^domain(2|4|5).test',
         ]);
         $collection->setKnownList([
-            '/^domain(3|5|6).test/',
+            '^domain(3|5|6).test',
         ]);
 
         return [

@@ -39,7 +39,7 @@ class RegexVerifier extends AbstractPCFVerifier
     private function pregList(array $list, string $domain): bool
     {
         foreach ($list as $pattern) {
-            if (true == preg_match($pattern, $domain)) {
+            if (true == preg_match("/$pattern/", $domain)) {
                 return true;
             }
         }
