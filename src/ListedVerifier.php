@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace PCF\DisposableEmail;
 
-use PCF\DisposableEmail\Exception\VerifyDomainException;
-
 /**
  * Simplest EmailVerifier.
  *
@@ -20,9 +18,9 @@ class ListedVerifier extends AbstractPCFVerifier
     protected function doVerifyDomain(string $domain): int
     {
         $lists = [
-            self::DOMAIN_UNTRUSTED => $this->collection->getBlockedList(),
-            self::DOMAIN_TRUSTED   => $this->collection->getTrustedList(),
-            self::DOMAIN_KNOWN     => $this->collection->getKnownList(),
+            static::DOMAIN_UNTRUSTED => $this->collection->getBlockedList(),
+            static::DOMAIN_TRUSTED   => $this->collection->getTrustedList(),
+            static::DOMAIN_KNOWN     => $this->collection->getKnownList(),
         ];
 
         foreach ($lists as $status => $list) {
@@ -30,11 +28,11 @@ class ListedVerifier extends AbstractPCFVerifier
                 continue;
             }
 
-            if (in_array($domain, $list)){
+            if (in_array($domain, $list)) {
                 return $status;
             }
         }
 
-        return self::DOMAIN_UNKNOWN;
+        return static::DOMAIN_UNKNOWN;
     }
 }

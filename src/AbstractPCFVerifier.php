@@ -9,7 +9,7 @@ use PCF\DisposableEmail\Exception\VerifyDomainException;
 /**
  * Class AbstractPCFVerifier
  * @package PCF\DisposableEmail
- */ 
+ */
 abstract class AbstractPCFVerifier implements EmailVerifierInterface
 {
     /**
@@ -51,7 +51,7 @@ abstract class AbstractPCFVerifier implements EmailVerifierInterface
      *
      * @return int
      */
-    public final function verifyDomain(string $domain): int
+    final public function verifyDomain(string $domain): int
     {
         $this->validateEntry($domain);
         
@@ -62,11 +62,11 @@ abstract class AbstractPCFVerifier implements EmailVerifierInterface
         return $result;
     }
     
-    /** 
+    /**
      * @param string $domain
-     * 
+     *
      * @throws VerifyDomainException
-     */ 
+     */
     protected function validateEntry(string $domain): void
     {
         if (empty($this->collection)) {
@@ -79,9 +79,9 @@ abstract class AbstractPCFVerifier implements EmailVerifierInterface
     }
     
     /**
-     * @param int    $domainStatus
+     * @param int    $validationResult
      * @param string $domain
-     * 
+     *
      * @throws VerifyDomainException
      */
     protected function validateOutput(int $validationResult, string $domain): void
@@ -100,9 +100,8 @@ abstract class AbstractPCFVerifier implements EmailVerifierInterface
     
     /**
      * @param string $domain
-     * 
+     *
      * @return int
-     */ 
-    protected abstract function doVerifyDomain(string $domain): int;
-    
+     */
+    abstract protected function doVerifyDomain(string $domain): int;
 }

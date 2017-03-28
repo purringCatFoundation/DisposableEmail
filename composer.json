@@ -3,7 +3,6 @@
   "description": "Simple lib to verify is present mail come from disposable or temporary email address domain.",
   "type": "library",
   "license": "MIT",
-  "version": "0.1.201707401",
   "authors": [
     {
       "name": "Paweł",
@@ -19,7 +18,8 @@
     "php": ">=7.1"
   },
   "require-dev": {
-    "phpunit/phpunit": "^6.0"
+    "phpunit/phpunit": "^6.0",
+    "squizlabs/php_codesniffer": "^2.8"
   },
   "autoload": {
     "psr-4": {

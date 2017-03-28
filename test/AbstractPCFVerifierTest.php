@@ -34,7 +34,8 @@ class AbstractPCFVerifierTest extends TestCase
         $collection = new SimpleDomainCollection();
         $verifier   = new class extends AbstractPCFVerifier
         {
-            protected function doVerifyDomain(string $domain): int {
+            protected function doVerifyDomain(string $domain): int
+            {
                 return self::DOMAIN_UNKNOWN;
             }
         };

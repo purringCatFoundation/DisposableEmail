@@ -10,12 +10,23 @@ namespace PCF\DisposableEmail;
  */
 class SimpleDomainCollection implements DomainCollectionInterface
 {
+    /**
+     * @var string[]
+     */
     private $trustedList = [];
-    private $blockedList = [];
-    private $knownList   = [];
 
     /**
-     * @return array
+     * @var string[]
+     */
+    private $blockedList = [];
+
+    /**
+     * @var string[]
+     */
+    private $knownList = [];
+
+    /**
+     * @return string[]
      */
     public function getTrustedList(): array
     {
@@ -23,7 +34,7 @@ class SimpleDomainCollection implements DomainCollectionInterface
     }
 
     /**
-     * @param array $list
+     * @param string[] $list
      */
     public function setTrustedList(array $list): void
     {
@@ -31,7 +42,7 @@ class SimpleDomainCollection implements DomainCollectionInterface
     }
 
     /**
-     * @return array
+     * @return string[]
      */
     public function getBlockedList(): array
     {
@@ -39,7 +50,7 @@ class SimpleDomainCollection implements DomainCollectionInterface
     }
 
     /**
-     * @param array $list
+     * @param string[] $list
      */
     public function setBlockedList(array $list): void
     {
@@ -47,7 +58,7 @@ class SimpleDomainCollection implements DomainCollectionInterface
     }
 
     /**
-     * @return array
+     * @return string[]
      */
     public function getKnownList(): array
     {
@@ -55,7 +66,7 @@ class SimpleDomainCollection implements DomainCollectionInterface
     }
 
     /**
-     * @param array $list
+     * @param string[] $list
      */
     public function setKnownList(array $list): void
     {

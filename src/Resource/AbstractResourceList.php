@@ -13,22 +13,33 @@ use PCF\DisposableEmail\Exception\DisposableEmailException;
 abstract class AbstractResourceList
 {
     public const DISPOSABLE_LIB_PATH = __DIR__.DIRECTORY_SEPARATOR.'lists'.DIRECTORY_SEPARATOR;
+
+    public const LIST_BLOCK = 'block';
+
+    public const LIST_TRUST = 'trust';
     
     /**
+     * Return array of resourced domain list.
+     * Possible lists:
+     * <ul>
+     *      <li> block (const LIST_BLOCK) - list of untrusted, evil, bad domains. </li>
+     *      <li> trust (const LIST_TRUST) - list of trusted, good domains</li>
+     * </ul>
+     *
      * @param string $listName
-     * 
-     * @return array
-     * 
+     *
+     * @return string[]
+     *
      * @throws DisposableEmailException
      */
     public static function getList(string $listName): array
     {
-        if ('block' === $listName) {
-            return self::readFile(static::DISPOSABLE_LIB_PATH.'blocklist.conf');
+        if (self::LIST_BLOCK === $listName) {
+            return self::parseFile(static::DISPOSABLE_LIB_PATH.'blocklist.conf');
         }
         
-        if ('trust' === $listName) {
-            return self::readFile(static::DISPOSABLE_LIB_PATH.'trustlist.conf');
+        if (self::LIST_TRUST === $listName) {
+            return self::parseFile(static::DISPOSABLE_LIB_PATH.'trustlist.conf');
         }
         
         throw new DisposableEmailException($listName.' list not is not know list. Alredy know : block|trust');
@@ -36,12 +47,12 @@ abstract class AbstractResourceList
     
     /**
      * @param string $path
-     * 
-     * @return array
-     * 
+     *
+     * @return string[]
+     *
      * @throws DisposableEmailException
      */
-    protected static function readFile(string $path): array
+    protected static function parseFile(string $path): array
     {
         if (false === file_exists($path)) {
             throw new DisposableEmailException($path.' file not exists.');

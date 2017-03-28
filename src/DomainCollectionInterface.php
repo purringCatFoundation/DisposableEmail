@@ -11,19 +11,18 @@ namespace PCF\DisposableEmail;
  */
 interface DomainCollectionInterface
 {
-    
     /**
-     * @return array
+     * @return string[]
      */
     public function getTrustedList(): array;
 
     /**
-     * @return array
+     * @return string[]
      */
     public function getBlockedList(): array;
 
     /**
-     * @return array
+     * @return string[]
      */
     public function getKnownList(): array;
 }
