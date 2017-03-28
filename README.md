@@ -1,5 +1,5 @@
 # Disposable email domains filter
-![](https://badge.fury.io/gh/purringCatFoundation%2FDisposableEmail) ![](https://travis-ci.org/purringCatFoundation/DisposableEmail.svg?branch=master)
+[![GitHub version](https://badge.fury.io/gh/purringCatFoundation%2FDisposableEmail.svg)](https://badge.fury.io/gh/purringCatFoundation%2FDisposableEmail) ![](https://travis-ci.org/purringCatFoundation/DisposableEmail.svg?branch=master)
 
 Our domain repositories comes from [repository](https://github.com/martenson/disposable-email-domains) licensed by [Public Domain License(CC0 1.0)](https://creativecommons.org/publicdomain/zero/1.0/).
  
