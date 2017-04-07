@@ -3,7 +3,7 @@
 
 Our domain repositories come from [repository](https://github.com/martenson/disposable-email-domains) licensed by [Public Domain License(CC0 1.0)](https://creativecommons.org/publicdomain/zero/1.0/).
  
-Domain repository date: [10.03.2017](https://github.com/martenson/disposable-email-domains/commit/e68bd490c6a8fa10012128955df86facfe4028e9)
+Domain repository date: [04.04.2017](https://github.com/martenson/disposable-email-domains/commit/26802ed273a88a63a32129ff8a0f6d9af8ddf1ee)
 
 
 This repository is contributed by [MIT License](LICENSE) but files [blocklist.conf](src/Resource/lists/blocklist.conf) and [trustlist.conf](src/Resource/lists/trustlist.conf) are contributed by [Public Domain License(CC0 1.0)](https://creativecommons.org/publicdomain/zero/1.0/).
