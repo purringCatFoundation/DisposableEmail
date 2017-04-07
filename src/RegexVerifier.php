@@ -10,6 +10,8 @@ namespace PCF\DisposableEmail;
  */
 class RegexVerifier extends AbstractPCFVerifier
 {
+    const PREG_MATCH_FOUND_RETURN = 1;
+    
     /**
      * @inheritdoc
      */
@@ -39,7 +41,7 @@ class RegexVerifier extends AbstractPCFVerifier
     private function pregList(array $list, string $domain): bool
     {
         foreach ($list as $pattern) {
-            if (true === preg_match("/$pattern/", $domain)) {
+            if (self::PREG_MATCH_FOUND_RETURN === preg_match("/$pattern/", $domain)) {
                 return true;
             }
         }
