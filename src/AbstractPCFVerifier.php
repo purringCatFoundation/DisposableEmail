@@ -61,6 +61,22 @@ abstract class AbstractPCFVerifier implements EmailVerifierInterface
         
         return $result;
     }
+
+    /**
+     * {@inheritdoc}
+     * This method will check whole lists
+     *
+     * @param string $email
+     *
+     * @return int
+     */
+    final public function verifyEmail(string $email): int
+    {
+        $parts = explode('@', $email);
+        $domain = end($parts);
+
+        return $this->verifyDomain($domain);
+    }
     
     /**
      * @param string $domain

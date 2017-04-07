@@ -31,4 +31,13 @@ interface EmailVerifierInterface
      * @return int
      */
     public function verifyDomain(string $domain): int;
+
+    /**
+     * Method will check email status based on inserted into class lists.
+     *
+     * @param string $email
+     *
+     * @return int
+     */
+    public function verifyEmail(string $email): int;
 }
