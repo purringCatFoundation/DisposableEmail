@@ -26,6 +26,21 @@ class ListedVerifierTest extends TestCase
     }
 
     /**
+     * @dataProvider verifyEmailDataProvider
+     *
+     * @param SimpleDomainCollection $collection
+     * @param string $email
+     * @param int $expectedStatus
+     */
+    public function testVerifyEmail(SimpleDomainCollection $collection, string $email, int $expectedStatus): void
+    {
+        $verifier = new ListedVerifier($collection);
+        $actualStatus = $verifier->verifyEmail($email);
+
+        $this->assertEquals($expectedStatus, $actualStatus);
+    }
+
+    /**
      * @return array
      */
     public function verifyTestDataProvider(): array
@@ -56,5 +71,19 @@ class ListedVerifierTest extends TestCase
             [ $collection, 'domain6.test', ListedVerifier::DOMAIN_KNOWN     ],
             [ $collection, 'domain7.test', ListedVerifier::DOMAIN_UNKNOWN   ],
         ];
+    }
+
+    /**
+     * @return array
+     */
+    public function verifyEmailDataProvider()
+    {
+        $testCases = $this->verifyTestDataProvider();
+
+        foreach ($testCases as $key => $val) {
+            $testCases[$key][1] = 'test@' . $val[1];
+        }
+
+        return $testCases;
     }
 }
