@@ -3,7 +3,7 @@
 
 Our domain repositories come from [repository](https://github.com/martenson/disposable-email-domains) licensed by [Public Domain License(CC0 1.0)](https://creativecommons.org/publicdomain/zero/1.0/).
  
-Domain repository date: [04.04.2017](https://github.com/martenson/disposable-email-domains/commit/26802ed273a88a63a32129ff8a0f6d9af8ddf1ee)
+Domain repository date: [09.11.2017](https://github.com/martenson/disposable-email-domains/commit/170d0826cae6f793801e6e39fd6eac7e9b314063#diff-45615409a4404da1979f49268dab8286)
 
 
 This repository is contributed by [MIT License](LICENSE) but files [blocklist.conf](src/Resource/lists/blocklist.conf) and [trustlist.conf](src/Resource/lists/trustlist.conf) are contributed by [Public Domain License(CC0 1.0)](https://creativecommons.org/publicdomain/zero/1.0/).
@@ -38,3 +38,4 @@ $status = $verifier->verifyDomain($domain); //It should return ListedVerifier::D
 
 Version of this composer lib looks like `1.0.201707401` which contains Major version. Minor version. Year, day of the year and commit version. 
 It should help with mail repository versioning.
+    
