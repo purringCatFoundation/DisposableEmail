@@ -29,7 +29,7 @@ $collection->setKnownList([
 $verifier = new ListedVerifier($collection);
 
 $mail = 'paw.radzikowski@gmail.com';
-list($localPart, $domain) = explode('@', $mail);
+$domain = trim(strstr(@mail, '@'), '@');
 
 $status = $verifier->verifyDomain($domain); //It should return ListedVerifier::DOMAIN_UNKNOWN
 ```
