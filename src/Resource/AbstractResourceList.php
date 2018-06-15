@@ -7,6 +7,8 @@ namespace PCF\DisposableEmail\Resource;
 use PCF\DisposableEmail\Exception\DisposableEmailException;
 
 /**
+ * @deprecated Static lists are deprecated until version 1.2.*. We propose store lists in project sources
+ *
  * Class AbstractResourceList
  * @package PCF\DisposableEmail\Resource
  */
