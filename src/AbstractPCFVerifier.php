@@ -22,7 +22,7 @@ abstract class AbstractPCFVerifier implements EmailVerifierInterface
      *
      * @param DomainCollectionInterface|null $collection
      */
-    public function __construct(DomainCollectionInterface $collection = null)
+    public function __construct(?DomainCollectionInterface $collection = null)
     {
         $this->collection = $collection;
     }
